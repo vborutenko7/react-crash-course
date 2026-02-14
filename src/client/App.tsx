@@ -1,10 +1,10 @@
+import MarketingPage from './marketing-page/MarketingPage.tsx';
+
 
 function App() {
   return (
     <>
-      <div>
-        Hello from react
-      </div>
+        <MarketingPage></MarketingPage>
     </>
   )
 }
