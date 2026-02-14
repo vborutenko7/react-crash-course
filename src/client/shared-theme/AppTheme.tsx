@@ -5,7 +5,7 @@ import { dataDisplayCustomizations } from './customizations/dataDisplay.tsx';
 import { feedbackCustomizations } from './customizations/feedback.tsx';
 import { navigationCustomizations } from './customizations/navigation.tsx';
 import { surfacesCustomizations } from './customizations/surfaces.ts';
-import { colorSchemes, typography, shadows, shape } from './themePrimitives.ts';
+import { colorSchemes, typography } from './themePrimitives.ts';
 import { inputsCustomizations } from './customizations/inputs.tsx';
 
 interface AppThemeProps {
@@ -20,23 +20,24 @@ export default function AppTheme(props: AppThemeProps) {
         return disableCustomTheme
             ? {}
             : createTheme({
-                // For more details about CSS variables configuration, see https://mui.com/material-ui/customization/css-theme-variables/configuration/
                 cssVariables: {
                     colorSchemeSelector: 'data-mui-color-scheme',
                     cssVarPrefix: 'template',
                 },
-                colorSchemes, // Recently added in v6 for building light & dark mode app, see https://mui.com/material-ui/customization/palette/#color-schemes
-                typography,
-                shadows,
-                shape,
-                components: {
-                    ...inputsCustomizations,
-                    ...dataDisplayCustomizations,
-                    ...feedbackCustomizations,
-                    ...navigationCustomizations,
-                    ...surfacesCustomizations,
-                    ...themeComponents,
+                colorSchemes: {
+                    light: true,
+                    dark: true,
                 },
+                 //colorSchemes, 
+                // typography,
+                // components: {
+                //     // ...inputsCustomizations,
+                //     ...dataDisplayCustomizations,
+                //     ...feedbackCustomizations,
+                //     ...navigationCustomizations,
+                //     ...surfacesCustomizations,
+                //     ...themeComponents,
+                // },
             });
     }, [disableCustomTheme, themeComponents]);
     console.log(theme);
