@@ -7,7 +7,10 @@ interface AppThemeProps {
 
 export default function AppTheme({ children }: AppThemeProps) {
     const customTheme = createTheme({
-        cssVariables:true,
+        cssVariables: {
+            colorSchemeSelector: 'data-mui-color-scheme',
+            cssVarPrefix: 'template',
+        },
         colorSchemes: {
             light: true,
             dark: true,
