@@ -1,12 +1,11 @@
 ﻿import HidingButton from './HidingButton';
-import { Stack } from '@mui/material';
 
 export default function HidingButtons() {
     return (
-        <Stack spacing={2}>
+        <div >
             {[...Array(10)].map((_, idx) => (
-                <HidingButton key={idx}/>
+                <HidingButton title={idx.toString()} key={idx}/>
             ))}
-        </Stack>
+        </div>
     );
 }
