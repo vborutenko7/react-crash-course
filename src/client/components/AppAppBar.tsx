@@ -10,6 +10,7 @@ export default function AppAppBar() {
         <AppBar
             enableColorOnDark
             sx={{
+                position: 'relative',
                 bgcolor: 'transparent',
             }}
         >
