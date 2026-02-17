@@ -1,7 +1,6 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import AppTheme from './AppTheme.tsx';
-import AppAppBar from '../marketing-page/components/AppAppBar.tsx';
-
+import AppAppBar from '../components/AppAppBar.tsx';
 
 function App() {
   return (
