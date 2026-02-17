@@ -3,7 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import ColorSchemeSwitcher from '../../components/ColorSchemeSwitcher.tsx';
+import ColorSchemeSwitcher from './ColorSchemeSwitcher.tsx';
 
 export default function AppAppBar() {
     return (
