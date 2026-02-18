@@ -4,6 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import ColorSchemeSwitcher from './ColorSchemeSwitcher.tsx';
+import {Link as RouterLink} from 'react-router';
 
 export default function AppAppBar() {
     return (
@@ -18,9 +19,13 @@ export default function AppAppBar() {
                 <Toolbar variant="dense" disableGutters>
                     <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
                         <Box sx={{ display: { display: 'flex' } }}>
-                            <Button variant="text" color="info" size="small">
+                            <Button component={RouterLink} to="/home" color="info" size="small">
+                                Home 
+                            </Button>
+                            <Button component={RouterLink} to="/homework1" color="info" size="small">
                                 Home work 1
                             </Button>
+                            
                         </Box>
                     </Box>
                     <Box
