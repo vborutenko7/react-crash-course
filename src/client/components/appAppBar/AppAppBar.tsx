@@ -25,6 +25,9 @@ export default function AppAppBar() {
                             <Button component={RouterLink} to="/homework1" color="info" size="small">
                                 Home work 1
                             </Button>
+                            <Button component={RouterLink} to="/homework2" color="info" size="small">
+                                Home work 2
+                            </Button>
                             
                         </Box>
                     </Box>
