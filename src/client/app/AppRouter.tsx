@@ -17,6 +17,11 @@ const router = createBrowserRouter([
         lazy: () =>
           import('./routes/HomeWork2').then((m) => ({ Component: m.default })),
       },
+      {
+        path: '/weather',
+        lazy: () =>
+          import('./routes/Weather').then((m) => ({ Component: m.default })),
+      },
     ],
   },
 ]);
