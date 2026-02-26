@@ -2,10 +2,12 @@
 import { ReactNode } from 'react';
 
 type ContentLayoutProps = {
-    children: ReactNode;
-}
+  children: ReactNode;
+};
 export default function ContentLayout({ children }: ContentLayoutProps) {
-    return <><AppAppBar></AppAppBar> {children}</>
-
-
+  return (
+    <>
+      <AppAppBar></AppAppBar> {children}
+    </>
+  );
 }

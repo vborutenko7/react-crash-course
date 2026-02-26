@@ -3,13 +3,15 @@ import Button from '@mui/material/Button';
 import { useState } from 'react';
 
 export default function HomeWork2() {
+  const [isHidden, setIsHidden] = useState(false);
 
-    const [isHidden, setIsHidden] = useState(false)
-    
-    
-    return <>
-        <Button onClick={() => setIsHidden(isHidden => !isHidden)}> {isHidden ? "Show" : "Hide"}  </Button>
-        {!isHidden && <TestStatusesComponent></TestStatusesComponent>}
-    
+  return (
+    <>
+      <Button onClick={() => setIsHidden((isHidden) => !isHidden)}>
+        {' '}
+        {isHidden ? 'Show' : 'Hide'}{' '}
+      </Button>
+      {!isHidden && <TestStatusesComponent></TestStatusesComponent>}
     </>
+  );
 }
