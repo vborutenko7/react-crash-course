@@ -45,6 +45,14 @@ export default function AppAppBar() {
               >
                 Home work 2
               </Button>
+              <Button
+                component={RouterLink}
+                to="/weather"
+                color="info"
+                size="small"
+              >
+                Weather
+              </Button>
             </Box>
           </Box>
           <Box>

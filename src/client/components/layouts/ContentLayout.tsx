@@ -1,5 +1,6 @@
 ﻿import AppAppBar from '../appAppBar/AppAppBar.tsx';
 import { ReactNode } from 'react';
+import Container from '@mui/material/Container';
 
 type ContentLayoutProps = {
   children: ReactNode;
@@ -7,7 +8,8 @@ type ContentLayoutProps = {
 export default function ContentLayout({ children }: ContentLayoutProps) {
   return (
     <>
-      <AppAppBar></AppAppBar> {children}
+      <AppAppBar></AppAppBar>
+      <Container>{children}</Container>
     </>
   );
 }

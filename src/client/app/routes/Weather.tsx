@@ -1,4 +1,13 @@
 ﻿import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import {
+  Box,
+  Button,
+  Paper,
+  Typography,
+  CircularProgress,
+  Alert,
+} from '@mui/material';
 
 type WeatherResponse = {
   city: string;
@@ -9,30 +18,48 @@ type WeatherResponse = {
 };
 
 const fetchWeather = async (): Promise<WeatherResponse> => {
-  const res = await fetch('/api/weather');
-  if (!res.ok) {
+  const res = await axios.get('/api/weather');
+  if (res.status !== 200) {
     throw new Error(`Weather request failed: ${res.status}`);
   }
-  return res.json();
+  return res.data;
 };
 
 const Weather = () => {
   const { data, isPending, error, refetch, isFetching } = useQuery({
     queryKey: ['weather', 'minsk'],
     queryFn: fetchWeather,
-    staleTime: 30_000,
+    staleTime: 5_000,
   });
 
-  if (isPending) return <div>Loading weather…</div>;
+  if (isPending)
+    return (
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight={120}
+      >
+        <CircularProgress />
+        <Typography ml={2}>Loading weather…</Typography>
+      </Box>
+    );
 
   if (error) {
     return (
-      <div>
-        <div>Failed to load weather.</div>
-        <button onClick={() => refetch()} disabled={isFetching}>
+      <Paper sx={{ p: 3, maxWidth: 400, mx: 'auto', mt: 4 }}>
+        <Alert severity="error" sx={{ mb: 2 }}>
+          Failed to load weather.
+        </Alert>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => refetch()}
+          disabled={isFetching}
+        >
           Retry
-        </button>
-      </div>
+        </Button>
+      </Paper>
     );
   }
 
@@ -40,21 +67,33 @@ const Weather = () => {
     typeof data?.temperature === 'number' ? data.temperature : null;
 
   return (
-    <div>
-      <h2>Weather</h2>
-      <div>
+    <Paper sx={{ p: 3, maxWidth: 400, mx: 'auto', mt: 4 }}>
+      <Typography variant="h5" gutterBottom>
+        Weather
+      </Typography>
+      <Typography>
         Current temperature in <b>{data.city}</b>:{' '}
         <b>
           {temperature === null ? 'N/A' : temperature}
           {data.unit}
         </b>
-      </div>
-      {data.time ? <div>Time: {data.time}</div> : null}
-      {data.source ? <div>Source: {data.source}</div> : null}
-      <button onClick={() => refetch()} disabled={isFetching}>
-        Refresh
-      </button>
-    </div>
+      </Typography>
+      {data.time ? (
+        <Typography color="text.secondary">Time: {data.time}</Typography>
+      ) : null}
+      {data.source ? (
+        <Typography color="text.secondary">Source: {data.source}</Typography>
+      ) : null}
+      <Box mt={2}>
+        <Button
+          variant="outlined"
+          onClick={() => refetch()}
+          disabled={isFetching}
+        >
+          {isFetching ? 'Refreshing…' : 'Refresh'}
+        </Button>
+      </Box>
+    </Paper>
   );
 };
 
