@@ -1,11 +1,11 @@
-﻿import express, { Request, Response, Router } from 'express';
+﻿import express from 'express';
 
 import { authController } from './auth.controller.ts';
 
-const router = Router();
+const router = express.Router();
 
 // Simple GET /login route for testing or static response
-router.get('/login', (req: Request, res: Response) => {
+router.get('/login', (req, res) => {
   res.send('Login page');
 });
 

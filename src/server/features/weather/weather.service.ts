@@ -1,15 +1,4 @@
-﻿// Service for weather-related logic
-
-export class WeatherService {
-  async getWeather(location: string) {
-    // Example: return static weather data for demonstration
-    return {
-      location,
-      temperature: 25,
-      condition: 'Sunny',
-    };
-  }
-
+﻿export class WeatherService {
   async getMinskWeather() {
     // Minsk coordinates
     const latitude = 53.9;
