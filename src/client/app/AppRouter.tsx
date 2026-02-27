@@ -22,6 +22,18 @@ const router = createBrowserRouter([
         lazy: () =>
           import('./routes/Weather').then((m) => ({ Component: m.default })),
       },
+      {
+        path: '/cars',
+        lazy: () =>
+          import('./routes/Cars').then((m) => ({ Component: m.default })),
+      },
+      {
+        path: '/cars/add',
+        lazy: () =>
+          import('./routes/AddNewCar.tsx').then((m) => ({
+            Component: m.default,
+          })),
+      },
     ],
   },
 ]);

@@ -53,6 +53,14 @@ export default function AppAppBar() {
               >
                 Weather
               </Button>
+              <Button
+                component={RouterLink}
+                to="/cars"
+                color="info"
+                size="small"
+              >
+                Cars
+              </Button>
             </Box>
           </Box>
           <Box>
